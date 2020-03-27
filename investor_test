@@ -1,0 +1,130 @@
+from stack_queue import Stack
+from stack_queue import Queue
+# Mohamed Bagayoko
+# 3/26/2020
+# Assignment 8 (More Stacks and Queues)
+# I had trouble making this
+
+
+class InvestmentPortfolio:
+
+    # Stack Loops
+    loop1 = True
+    loop2 = True
+    # Queue Loops
+    loop3 = True
+    loop4 = True
+
+    choice = int(input("""Welcome to your Investor Portfolio!
+-Type 1 for LIFO (Stack)
+-Type 2 for FIFO (Queue)
+> """))
+
+# Stack Method --------------------------------------------------------------------------------------------------------
+    shares = []
+    per_share = []
+    while loop1:
+        if choice == 1:
+            print("You have selected LIFO (Stack)")
+            shares_statement = int(input("""How many shares do you want to add?
+            > """))
+            shares.append(shares_statement)
+            per_share_statement = int(input("""How much is each share? 
+            > $"""))
+            per_share.append(per_share_statement)
+            print(f"You have added {shares_statement} shares and each share is ${per_share_statement} per share.")
+            loop1 = False
+            loop2 = True
+
+    # Menu--
+        while loop2:
+            decision = int(input("""---------------------------------------------------------
+    Investment Portfolio Directory
+    -Type 1 to add a new stock
+    -Type 2 to sell your existing stock
+    -Type 3 to view your portfolio
+    -Type 4 to exit
+    > """))
+
+            if decision == 1:
+                print("You have selected 1.")
+                loop1 = True
+                loop2 = False
+            if decision == 2:
+                print("You have selected 2")
+                print(f"You will be selling your first set of shares")
+                shares.pop(-1)
+                per_share.pop(-1)
+                continuation = input(f"""Your set of shares have been sold. 
+    Your current set is as shown {shares} / ${per_share}
+    (Enter anything to go back to menu)
+    """)
+                loop2 = True
+                loop1 = False
+            if decision == 3:
+                print(f"""You have selected 3.
+    Your portfolio currently has {shares} / ${per_share}""")
+                continuation = input("""(Enter anything to go back to menu)
+                """)
+                loop2 = True
+            if decision == 4:
+                print("You have selected 4. Have a good day!")
+                loop1 = False
+                loop2 = False
+
+# Queue Method --------------------------------------------------------------------------------------------------------
+    shares = []
+    per_share = []
+    while loop3:
+        if choice == 2:
+            print("You have selected FIFO (Queue)")
+            shares_statement = int(input("""How many shares do you want to add?
+            > """))
+            shares.append(shares_statement)
+            per_share_statement = int(input("""How much is each share? 
+            > $"""))
+            per_share.append(per_share_statement)
+            print(f"You have added {shares_statement} shares and each share is ${per_share_statement} per share.")
+            loop3 = False
+            loop4 = True
+
+    # Menu--
+        while loop4:
+            decision = int(input("""---------------------------------------------------------
+    Investment Portfolio Directory
+    -Type 1 to add a new stock
+    -Type 2 to sell your existing stock
+    -Type 3 to view your portfolio
+    -Type 4 to exit
+    > """))
+
+            if decision == 1:
+                print("You have selected 1.")
+                loop3 = True
+                loop4 = False
+            if decision == 2:
+                print("You have selected 2")
+                print(f"You will be selling your first set of shares")
+                shares.pop(-1)
+                per_share.pop(-1)
+                continuation = input(f"""Your set of shares have been sold. 
+    Your current set is as shown {shares} / ${per_share}
+    (Enter anything to go back to menu)
+    """)
+                loop4 = True
+                loop3 = False
+            if decision == 3:
+                print(f"""You have selected 3.
+    Your portfolio currently has {shares} / ${per_share}""")
+                continuation = input("""(Enter anything to go back to menu)
+                """)
+                loop4 = True
+            if decision == 4:
+                print("You have selected 4. Have a good day!")
+                loop3 = False
+                loop4 = False
+
+
+
+
+
