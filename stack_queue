@@ -1,0 +1,28 @@
+class Stack:
+    def __int__(self):
+        self.myList = []
+
+    def push(self, add):
+        self.myList.append(add)
+        return
+
+    def pop(self):
+        return self.myList[-1]
+
+
+class Queue:
+    def __init__(self):
+        self.head = self.tail = None
+        self.myList = []
+
+    def shift(self, data):
+        self.myList.append(data)
+
+    def unshift(self):
+            node = self.head
+            if self.head == self.tail:
+                pass
+            else:
+                self.head = node.next
+                self.head.prev = None
+            return node.value
